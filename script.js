@@ -17,35 +17,23 @@ window.addEventListener("load", function(){
             // Bonus Mission 3 - Add a count of astronauts to the page.
             astronautCount +=1;
             // Bonus Mission 2 - Make the "Active: true" text green, for astronauts that are still active (active is true).
-            if (json[i].active === true) {
-                container.innerHTML += `<div class="astronaut">
-                    <div class="bio">
+            let activeColor = (json[i].active === true) ? `<li style="color: green;">Active: ${json[i].active}</li>` : `<li style="color: red;">Active: ${json[i].active}</li>`;
+                
+            container.innerHTML += `<div class="astronaut">
+                <div class="bio">
                     <h3>${json[i].firstName} ${json[i].lastName}</h3>
                     <ul>
                         <li>Hours in space: ${json[i].hoursInSpace}</li>
-                        <li style="color: green;">Active: ${json[i].active}</li>
+                        ${activeColor}
                         <li>Skills: ${json[i].skills.join(', ')}</li>
                     </ul>
                     </div>
                     <img class="avatar" src="${json[i].picture}">
                 </div>`;
-            } else {
-                container.innerHTML += `<div class="astronaut">
-                    <div class="bio">
-                    <h3>${json[i].firstName} ${json[i].lastName}</h3>
-                    <ul>
-                        <li>Hours in space: ${json[i].hoursInSpace}</li>
-                        <li style="color: red;">Active: ${json[i].active}</li>
-                        <li>Skills: ${json[i].skills.join(', ')}</li>
-                    </ul>
-                    </div>
-                    <img class="avatar" src="${json[i].picture}">
-                </div>`;
-            }
             
         }
         // Bonus Mission 3 - Add a count of astronauts to the page.
-        container.innerHTML += `<h2>Astronaut Count: ${astronautCount}</h2>`
+        container.innerHTML += `<h2>Astronaut Count: ${astronautCount}</h2>`;
         });
     });
 });

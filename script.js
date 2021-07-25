@@ -4,7 +4,8 @@ window.addEventListener("load", function(){
     // TODO: fetch planets JSON
     fetch("https://handlers.education.launchcode.org/static/astronauts.json").then(function(response){
         response.json().then(function(json) {
-        console.log(json); // it's good practice to log the response object to see it's shape.
+        // it's good practice to log the response object to see its shape.
+        console.log(json); 
         
         // Bonus Mission 1 - Display the astronauts sorted from most to least time in space.
         json.sort((a, b) => (a.hoursInSpace > b.hoursInSpace ? -1 : 1));
